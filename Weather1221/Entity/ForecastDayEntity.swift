@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct ForecastDayEntity: Identifiable {
+    let id = UUID()
+
+    let text: String
+    let iconUrl: URL
+    let tempC: Double
+    let windKph: Double
+    let humidity: Double
+}

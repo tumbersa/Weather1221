@@ -18,7 +18,7 @@ struct Endpoint {
     func base(_ baseURL: String) -> Endpoint {
         var copy = self
         let url = URL(string: baseURL)
-        copy.components.path =  url?.path() ?? ""
+        copy.components.path =  url?.path ?? ""
         copy.components.scheme = url?.scheme
         copy.components.host = url?.host
         return copy
@@ -26,8 +26,7 @@ struct Endpoint {
 
     func path(_ path: String) -> Endpoint {
         var copy = self
-        let sanitizedPath = path.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
-        copy.components.path += "/" + sanitizedPath
+        copy.components.path += path
         return copy
     }
 

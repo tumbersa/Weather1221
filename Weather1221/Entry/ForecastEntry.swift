@@ -76,26 +76,9 @@ struct ForecastEntry: Codable {
 
     // MARK: - Condition
     struct Condition: Codable {
-        let text: Text?
+        let text: String
         let icon: String
         let code: Int
-    }
-
-    enum Text: String, Codable {
-        case clear = "Clear"
-        case cloudy = "Cloudy"
-        case overcast = "Overcast"
-        case partlyCloudy = "Partly Cloudy"
-        case patchyRainNearby = "Patchy rain nearby"
-        case sunny = "Sunny"
-        case mist = "Mist"
-        case unknown = "Unknown" // Default case
-
-        init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            let rawValue = try container.decode(String.self).trimmingCharacters(in: .whitespaces)
-            self = Text(rawValue: rawValue) ?? .unknown
-        }
     }
 
     enum WindDir: String, Codable {
